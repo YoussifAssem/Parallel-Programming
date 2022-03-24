@@ -19,14 +19,21 @@ class _Chat extends State<Chat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 209, 207, 207),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
-        backgroundColor: Colors.blue[900],
+        backgroundColor: const Color.fromARGB(255, 71, 196, 79),
         title: const Text(
           'Name From DB',
         ),
         actions: [
+          Image.asset(
+            'images/logo.png',
+            fit: BoxFit.contain,
+            height: 50,
+            width: 50,
+          ),
           Container(
+            padding: const EdgeInsets.all(15.0),
             alignment: Alignment.centerRight,
             child: Text(
               FirebaseAuth.instance.currentUser!.email.toString(),
@@ -67,7 +74,7 @@ class _Chat extends State<Chat> {
                           vertical: 10,
                           horizontal: 20,
                         ),
-                        fillColor: Colors.white,
+                        fillColor: Colors.green,
                         hintText: 'Write your message here...',
                         border: InputBorder.none,
                       ),
@@ -85,10 +92,10 @@ class _Chat extends State<Chat> {
                       });
                       message.clear(); //to clear text feild
                     },
-                    child: Text(
+                    child: const Text(
                       'send',
                       style: TextStyle(
-                        color: Colors.blue[800],
+                        color: Colors.green,
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),

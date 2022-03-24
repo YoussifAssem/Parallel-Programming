@@ -17,13 +17,19 @@ class _homeScreen extends State<homeScreen> {
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 209, 207, 207),
         appBar: AppBar(
-          automaticallyImplyLeading: false,
-          backgroundColor: Colors.blue[900],
+          backgroundColor: const Color.fromARGB(255, 71, 196, 79),
           title: const Text(
             'Home Page',
           ),
           actions: [
+            Image.asset(
+              'images/logo.png',
+              fit: BoxFit.contain,
+              height: 50,
+              width: 50,
+            ),
             Container(
+              padding: const EdgeInsets.all(15.0),
               alignment: Alignment.centerRight,
               child: Text(
                 user.Email,
@@ -35,15 +41,15 @@ class _homeScreen extends State<homeScreen> {
             )
           ],
         ),
-        body: const Center(
-          child: Text(
-            'Welcome In \n MA7FZTY ',
-            style: TextStyle(
-                fontSize: 30,
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.bold,
-                color: Colors.black),
-          ),
+        body: Container(
+          constraints: const BoxConstraints.expand(),
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("images/bk.jpg"), fit: BoxFit.cover)),
+          /* child: const TextField(
+              decoration:
+                 // InputDecoration(fillColor: Colors.green, filled: true),
+            )*/
         ));
   }
 }

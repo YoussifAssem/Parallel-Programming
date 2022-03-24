@@ -42,32 +42,31 @@ class _Menu extends State<Menu> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blue[900],
-        items: <BottomNavigationBarItem>[
+        backgroundColor: const Color.fromARGB(255, 71, 196, 79),
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: const Icon(Icons.home),
-            label: 'Home',
-            backgroundColor: Colors.blue[900],
-          ),
+              icon: Icon(Icons.home),
+              label: 'Home',
+              backgroundColor: Color.fromARGB(255, 71, 196, 79)),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.chat),
+            icon: Icon(Icons.chat),
             label: 'Chat',
-            backgroundColor: Colors.blue[900],
+            backgroundColor: Color.fromARGB(255, 71, 196, 79),
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.money_rounded),
+            icon: Icon(Icons.money_rounded),
             label: 'Transfer Money',
-            backgroundColor: Colors.blue[900],
+            backgroundColor: Color.fromARGB(255, 71, 196, 79),
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.view_array),
+            icon: Icon(Icons.view_array),
             label: 'view Amount',
-            backgroundColor: Colors.blue[900],
+            backgroundColor: Color.fromARGB(255, 71, 196, 79),
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.logout),
+            icon: Icon(Icons.logout),
             label: 'Log Out',
-            backgroundColor: Colors.blue[900],
+            backgroundColor: Color.fromARGB(255, 71, 196, 79),
           ),
         ],
         currentIndex: _selectedIndex,
