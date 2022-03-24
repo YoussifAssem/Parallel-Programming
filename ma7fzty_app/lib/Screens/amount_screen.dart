@@ -1,8 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, camel_case_types
 
 import 'package:flutter/material.dart';
-
-import '../Models/user.dart';
+import 'package:ma7fzty_app/Models/normal_user.dart';
 
 class viewAmount extends StatefulWidget {
   @override
@@ -12,7 +11,7 @@ class viewAmount extends StatefulWidget {
 }
 
 class _viewAmount extends State<viewAmount> {
-  User user = User();
+  normalUser user = normalUser();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
