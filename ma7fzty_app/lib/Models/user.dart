@@ -14,19 +14,19 @@ class User {
       required String password,
       required String phoneNumber}) async {
     try {
-      _setEmail(email);
-      _setPassword(password);
-      _setPhoneMumber(phoneNumber);
-      if (_getEmail() != 'Error' &&
-          _getPassword() != 'Error' &&
-          _getPhoneNumber() != 'Error') {
+      setEmail(email);
+      setPassword(password);
+      setPhoneMumber(phoneNumber);
+      if (getEmail() != 'Error' &&
+          getPassword() != 'Error' &&
+          getPhoneNumber() != 'Error') {
         final list =
-            await FirebaseAuth.instance.fetchSignInMethodsForEmail(_getEmail());
+            await FirebaseAuth.instance.fetchSignInMethodsForEmail(getEmail());
         if (list.isNotEmpty) {
           return 'Error';
         } else {
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
-              email: _getEmail(), password: _getPassword());
+              email: getEmail(), password: getPassword());
           DocumentReference ref = FirebaseFirestore.instance
               .collection('Users')
               .doc(FirebaseAuth.instance.currentUser!.uid);
@@ -34,8 +34,8 @@ class User {
             DocumentSnapshot snapShot = await transaction.get(ref);
             if (!snapShot.exists) {
               ref.set({
-                'email': _getEmail(),
-                'phoneNumber': _getPhoneNumber(),
+                'email': getEmail(),
+                'phoneNumber': getPhoneNumber(),
               });
             }
           });
@@ -52,18 +52,22 @@ class User {
     return FirebaseAuth.instance.currentUser!.email.toString();
   }
 
+  String get userID {
+    return FirebaseAuth.instance.currentUser!.uid;
+  }
+
   Future<String?> signOut() async {
     await FirebaseAuth.instance.signOut();
     return '';
   }
 
   login(String email, String password) async {
-    _setEmail(email);
-    _setPassword(password);
-    if (_getEmail() != 'Error' && _getPassword() != 'Error') {
+    setEmail(email);
+    setPassword(password);
+    if (getEmail() != 'Error' && getPassword() != 'Error') {
       try {
         await FirebaseAuth.instance.signInWithEmailAndPassword(
-            email: _getEmail(), password: _getPassword());
+            email: getEmail(), password: getPassword());
         return 'Done';
       } on FirebaseAuthException catch (e) {
         return e.message;
@@ -97,11 +101,11 @@ class User {
     }
   }
 
-  _setEmail(String e) {
+  setEmail(String e) {
     _email = e;
   }
 
-  _getEmail() {
+  getEmail() {
     if (_email == '') {
       return 'Error';
     } else {
@@ -109,11 +113,11 @@ class User {
     }
   }
 
-  _setPhoneMumber(String phoneNumber) {
+  setPhoneMumber(String phoneNumber) {
     _phoneNumber = phoneNumber;
   }
 
-  _getPhoneNumber() {
+  getPhoneNumber() {
     if (_phoneNumber == '') {
       return 'Error';
     }
@@ -122,11 +126,11 @@ class User {
     }
   }
 
-  _setPassword(String p) {
+  setPassword(String p) {
     _password = p;
   }
 
-  _getPassword() {
+  getPassword() {
     if (_password == '') {
       return 'Error';
     } else {
