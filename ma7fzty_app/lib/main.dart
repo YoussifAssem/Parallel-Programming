@@ -27,8 +27,8 @@ class MyApp extends StatelessWidget {
         '/logIn': (context) => logIn(),
       },
 
-      home: logIn(),
-    //home: Splash(),
+     // home: logIn(),
+    home: const Splash(),
    //home:SignUp(),
 
     );
