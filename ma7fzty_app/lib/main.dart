@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
 
 
       },
-     // home: logIn(),
-    home: Splash(),
+      home: logIn(),
+    //home: Splash(),
    //home:SignUp(),
     );
   }
