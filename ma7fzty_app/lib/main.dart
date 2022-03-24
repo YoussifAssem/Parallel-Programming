@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ma7fzty_app/Screens/login_screen.dart';
+import 'package:ma7fzty_app/Screens/signup_screen.dart';
+import 'package:ma7fzty_app/Screens/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +24,16 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.landscapeLeft,
     ]);
     return MaterialApp(
-      home: logIn(),
+      routes: {
+        
+
+        '/logIn': (context) =>logIn(),
+
+
+      },
+     // home: logIn(),
+    home: Splash(),
+   //home:SignUp(),
     );
   }
 }

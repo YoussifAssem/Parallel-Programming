@@ -25,17 +25,46 @@ class _SignUp extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // drawer: IconButton(
+      //                 onPressed: () async {
+
+      //                   Navigator.pushNamed(context, '/login');
+      //                 }, icon: Icon(Icons.arrow_back),),
         backgroundColor: const Color.fromARGB(255, 209, 207, 207),
         appBar: AppBar(
-          backgroundColor: Colors.blue[900],
-          title: const Text(
-            'Sign Up',
-            style: TextStyle(color: Colors.white),
+          
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                    'images/logo.png',
+                    fit: BoxFit.contain,
+                    height: 50,
+                    width: 50,
+                  ),
+              const Text(
+                ' SignUp',
+                style: TextStyle(color: Colors.white),
+              ),
+              
+            ],
+            
           ),
+           centerTitle: true,
+              // automaticallyImplyLeading: false,
+              backgroundColor: const Color.fromARGB(255, 71, 196, 79),
         ),
-        body: Padding(
-            padding: const EdgeInsets.all(2),
-            child: ListView(children: <Widget>[
+
+        body: 
+            ListView(
+              children: [
+              Container(
+                padding: const EdgeInsets.only(left: 40, top: 25, right: 40),
+                //child: GestureDetector(
+                  //onTap: () {
+                    //FocusScope.of(context).unfocus();
+                  //},
+                  child: Column(children: [
               const SizedBox(height: 50),
               const Center(
                   child: Text(
@@ -46,23 +75,29 @@ class _SignUp extends State<SignUp> {
                     fontStyle: FontStyle.italic,
                     fontSize: 30),
               )),
-              const SizedBox(height: 25.0),
+              const SizedBox(height: 50),
               TextFormField(
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 18, color: Colors.white),
+                style: const TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
                 keyboardType: TextInputType.emailAddress,
                 controller: e,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                    borderSide: BorderSide.none,
-                  ),
-                  filled: true,
-                  fillColor: Colors.blue[900],
-                  hintText: 'Email',
-                  hintStyle: const TextStyle(fontSize: 18, color: Colors.white),
-                ),
+              decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15.0)),
+                            borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          fillColor: Color.fromARGB(255, 71, 196, 79),
+                          hintText: 'Email',
+                          hintStyle:
+                              TextStyle(fontSize: 18, color: Colors.white),
+                        ),    
               ),
+
               const SizedBox(height: 25),
               TextFormField(
                 textAlign: TextAlign.center,
@@ -76,16 +111,20 @@ class _SignUp extends State<SignUp> {
                 inputFormatters: <TextInputFormatter>[
                   FilteringTextInputFormatter.deny(RegExp('[^0-9]')),
                 ],
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                    borderSide: BorderSide.none,
-                  ),
-                  filled: true,
-                  fillColor: Colors.blue[900],
-                  hintText: 'Phone Number',
-                  hintStyle: const TextStyle(fontSize: 18, color: Colors.white),
-                ),
+               
+                 decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15.0)),
+                            borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          fillColor: Color.fromARGB(255, 71, 196, 79),
+                          hintText: 'Phone Number',
+                          hintStyle:
+                              TextStyle(fontSize: 18, color: Colors.white),
+                        ), 
+
               ),
               const SizedBox(
                 height: 25.0,
@@ -101,7 +140,7 @@ class _SignUp extends State<SignUp> {
                     borderSide: BorderSide.none,
                   ),
                   filled: true,
-                  fillColor: Colors.blue[900],
+                  fillColor:Color.fromARGB(255, 71, 196, 79),
                   hintText: 'Password',
                   hintStyle: const TextStyle(fontSize: 18, color: Colors.white),
                 ),
@@ -120,7 +159,7 @@ class _SignUp extends State<SignUp> {
                     borderSide: BorderSide.none,
                   ),
                   filled: true,
-                  fillColor: Colors.blue[900],
+                  fillColor: Color.fromARGB(255, 71, 196, 79),
                   hintText: 'Confirm Password',
                   hintStyle: const TextStyle(fontSize: 18, color: Colors.white),
                 ),
@@ -132,14 +171,14 @@ class _SignUp extends State<SignUp> {
               SizedBox(
                 height: 50,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 250),
+                  padding: const EdgeInsets.only(left: 80, right: 80),
                   child: ElevatedButton(
                     child: const Text(
                       'Sign Up',
                     ),
                     style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(Colors.blue[900]),
+                          MaterialStateProperty.all(Color.fromARGB(255, 71, 196, 79),),
                     ),
                     onPressed: () async => {
                       if (pN.text == '' ||
@@ -194,8 +233,16 @@ class _SignUp extends State<SignUp> {
                     },
                   ),
                 ),
-              )
-            ])));
+              ),
+
+                  ],
+                  ),
+
+                ),
+              //)
+            ],
+            )
+            );
   }
 
   showAlertDialog(
