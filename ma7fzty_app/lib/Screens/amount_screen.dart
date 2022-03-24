@@ -16,7 +16,7 @@ class _viewAmount extends State<viewAmount> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 209, 207, 207),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 71, 196, 79),
           title: const Text(
