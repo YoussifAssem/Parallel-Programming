@@ -81,6 +81,10 @@ class _SignUp extends State<SignUp> {
                     keyboardType: TextInputType.emailAddress,
                     controller: e,
                     decoration: const InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.email,
+                        color: Colors.white,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15.0)),
                         borderSide: BorderSide.none,
@@ -105,6 +109,10 @@ class _SignUp extends State<SignUp> {
                       FilteringTextInputFormatter.deny(RegExp('[^0-9]')),
                     ],
                     decoration: const InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.phone,
+                        color: Colors.white,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15.0)),
                         borderSide: BorderSide.none,
@@ -124,6 +132,10 @@ class _SignUp extends State<SignUp> {
                     //keyboardType: TextInputType.visiblePassword,
                     controller: p,
                     decoration: const InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.password,
+                        color: Colors.white,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15.0)),
                         borderSide: BorderSide.none,
@@ -143,6 +155,10 @@ class _SignUp extends State<SignUp> {
                     style: const TextStyle(fontSize: 18, color: Colors.white),
                     controller: cP,
                     decoration: const InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.password,
+                        color: Colors.white,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15.0)),
                         borderSide: BorderSide.none,

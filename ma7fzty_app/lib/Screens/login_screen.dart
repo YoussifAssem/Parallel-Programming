@@ -92,6 +92,10 @@ class _logIn extends State<logIn> {
                         keyboardType: TextInputType.emailAddress,
                         controller: email,
                         decoration: const InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.email,
+                            color: Colors.white,
+                          ),
                           border: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(15.0)),
@@ -116,6 +120,10 @@ class _logIn extends State<logIn> {
                         //keyboardType: TextInputType.visiblePassword,
                         controller: password,
                         decoration: const InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.password,
+                            color: Colors.white,
+                          ),
                           border: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(15.0)),
