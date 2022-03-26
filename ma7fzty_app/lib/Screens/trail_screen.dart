@@ -12,9 +12,9 @@ class Screen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     //a.openWallet("ali@gmail.com", "01198876487", 30.25);
-    //a.removeWallet("0F2MygFR26KGQ4ZR2Vmp");
-    w.addMoney("01198876487", 4.5);
-    print("money added");
+    //a.removeWallet("CQsPzm5EbYGE1IRi4np0");
+    w.addMoney("01234567890", "aya@miu.com", 4.5);
+    // print("money added");
     return _Screen();
   }
 }

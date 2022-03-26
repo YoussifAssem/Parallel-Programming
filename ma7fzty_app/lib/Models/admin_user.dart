@@ -12,9 +12,9 @@ class Admin extends User {
     return wa
         .doc()
         .set({
-          'email': email,
+          'ownerEmail': email,
           'ownerphoneNo': phoneNo,
-          'Amount': amount,
+          'moneyAmount': amount,
         })
         .then((value) => print("wallet Added"))
         .catchError((error) => print("Failed to add wallet: $error"));
