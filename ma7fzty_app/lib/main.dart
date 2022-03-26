@@ -3,8 +3,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ma7fzty_app/Screens/login_screen.dart';
-import 'package:ma7fzty_app/Screens/splash_screen.dart';
+/*import 'package:ma7fzty_app/Screens/login_screen.dart';
+import 'package:ma7fzty_app/Screens/splash_screen.dart';*/
+import 'package:ma7fzty_app/webui/login_screen.dart';
+import 'package:ma7fzty_app/webui/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
