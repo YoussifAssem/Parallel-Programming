@@ -1,3 +1,5 @@
+// ignore_for_file: body_might_complete_normally_nullable
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Wallet {
@@ -50,7 +52,8 @@ class Wallet {
     });
   }
 
-  Future<void> openWallet(String email, String phoneNo, double amount) async {
+  Future<String?> openWallet(
+      String email, String phoneNo, double amount) async {
     CollectionReference wa = FirebaseFirestore.instance.collection('Wallet');
 
     return wa
@@ -60,22 +63,23 @@ class Wallet {
           'ownerphoneNo': phoneNo,
           'moneyAmount': amount,
         })
-        .then((value) => print("wallet Added"))
-        .catchError((error) => print("Failed to add wallet: $error"));
+        .then((value) => 'Done')
+        .catchError((error) => 'Error');
   }
 
-  Future<void> removeWallet(String email, String phoneNumber) async {
+  Future<String?> removeWallet(String email, String phoneNumber) async {
     CollectionReference w = FirebaseFirestore.instance.collection('Wallet');
     w.get().then((QuerySnapshot querySnapshot) {
       querySnapshot.docs.forEach((doc) {
+        print(doc["ownerEmail"]);
+
         if (email == doc["ownerEmail"] && phoneNumber == doc["ownerPhoneNo"]) {
           w
               .doc(doc.id)
               .delete()
-              .then((value) => print("wallet Deleted"))
-              .catchError((error) => print("Failed to delete wallet: $error"));
-        } else
-          print("not found");
+              .then((value) => 'Done')
+              .catchError((error) => 'Error');
+        }
       });
     });
   }

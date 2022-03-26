@@ -6,6 +6,7 @@ import 'package:ma7fzty_app/webui/chat_screen.dart';
 import 'package:ma7fzty_app/webui/home_screen.dart';
 import 'package:ma7fzty_app/webui/login_screen.dart';
 import 'package:ma7fzty_app/webui/openwallet_screen.dart';
+import 'package:ma7fzty_app/webui/removewallet_screen.dart';
 
 class Menu extends StatefulWidget {
   @override
@@ -52,6 +53,17 @@ class _Menu extends State<Menu> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => openWallet()),
+                );
+              }),
+          ListTile(
+              leading: const Icon(Icons.money),
+              title: const Text('Remove Wallet'),
+              iconColor: Colors.white,
+              textColor: Colors.white,
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => removeWallet()),
                 );
               }),
           ListTile(
