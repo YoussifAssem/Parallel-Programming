@@ -1,4 +1,4 @@
-// ignore_for_file: body_might_complete_normally_nullable
+// ignore_for_file: body_might_complete_normally_nullable, avoid_function_literals_in_foreach_calls
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -26,28 +26,28 @@ class Wallet {
   }
 
   Future<void> addMoney(String email, String phoneNumber, double amount) async {
-    print("iamin");
+    //print("iamin");
     CollectionReference wa = FirebaseFirestore.instance.collection('Wallet');
-    print(amount);
-    print(phoneNumber);
+    //print(amount);
+    //print(phoneNumber);
     wa.get().then((QuerySnapshot querySnapshot) {
       querySnapshot.docs.forEach((doc) {
-        print(doc["ownerPhoneNo"] +
-            doc["ownerEmail"] +
-            doc["moneyAmount"].toString());
-        print("ok");
+        // print(doc["ownerPhoneNo"] +
+        //    doc["ownerEmail"] +
+        //    doc["moneyAmount"].toString());
+        // print("ok");
         if (phoneNumber == doc["ownerPhoneNo"] && email == doc["ownerEmail"]) {
-          print("updated");
+          // print("updated");
 
           _moneyAmount = double.parse(doc["moneyAmount"].toString());
-          print(_moneyAmount);
+          // print(_moneyAmount);
           _moneyAmount = (_moneyAmount + amount);
           _moneyAmount.toStringAsFixed(2);
-          print(_moneyAmount);
+          // print(_moneyAmount);
 
           wa.doc(doc.id).update({'moneyAmount': _moneyAmount});
         } else {
-          print("not found");
+          // print("not found");
         }
       });
     });

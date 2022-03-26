@@ -2,7 +2,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ma7fzty_app/Models/user.dart';
-import 'package:ma7fzty_app/Models/wallet.dart';
 
 class normalUser extends User {
   //Object From Wallet
