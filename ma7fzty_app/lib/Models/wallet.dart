@@ -22,7 +22,7 @@ class Wallet {
     return _moneyAmount;
   }
 
-  Future<void> addMoney(String phoneNumber, String email, double amount) async {
+  Future<void> addMoney(String email, String phoneNumber, double amount) async {
     print("iamin");
     CollectionReference wa = FirebaseFirestore.instance.collection('Wallet');
     print(amount);
@@ -64,11 +64,11 @@ class Wallet {
         .catchError((error) => print("Failed to add wallet: $error"));
   }
 
-  Future<void> removeWallet(String id) async {
+  Future<void> removeWallet(String email, String phoneNumber) async {
     CollectionReference w = FirebaseFirestore.instance.collection('Wallet');
     w.get().then((QuerySnapshot querySnapshot) {
       querySnapshot.docs.forEach((doc) {
-        if (id == doc.id.toString()) {
+        if (email == doc["ownerEmail"] && phoneNumber == doc["ownerPhoneNo"]) {
           w
               .doc(doc.id)
               .delete()

@@ -10,11 +10,11 @@ class Admin extends User {
     wallet.openWallet(email, phoneNo, amount);
   }
 
-  Future<void> removeWallet(String id) async {
-    wallet.removeWallet(id);
+  Future<void> removeWallet(String email, String phoneNo) async {
+    wallet.removeWallet(email, phoneNo);
   }
 
-  Future<void> addMoney(String phoneNumber, String email, double amount) async {
-    wallet.addMoney(phoneNumber, email, amount);
+  Future<void> addMoney(String email, String phoneNumber, double amount) async {
+    wallet.addMoney(email, phoneNumber, amount);
   }
 }
