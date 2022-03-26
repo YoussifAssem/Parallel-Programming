@@ -1,7 +1,6 @@
 // ignore_for_file: unused_field, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:ma7fzty_app/webui/amount_screen.dart';
 import 'package:ma7fzty_app/webui/chat_screen.dart';
 import 'package:ma7fzty_app/webui/home_screen.dart';
 import 'package:ma7fzty_app/webui/login_screen.dart';
