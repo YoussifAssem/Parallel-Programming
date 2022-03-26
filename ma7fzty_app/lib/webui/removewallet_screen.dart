@@ -26,7 +26,7 @@ class _removeWallet extends State<removeWallet> {
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 71, 196, 79),
           title: const Text(
-            'Open Wallet',
+            'Remove Wallet',
           ),
           actions: [
             Image.asset(
@@ -61,7 +61,7 @@ class _removeWallet extends State<removeWallet> {
                   const SizedBox(height: 50),
                   const Center(
                       child: Text(
-                    'Sign Up',
+                    'Remove Wallet',
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -164,7 +164,7 @@ class _removeWallet extends State<removeWallet> {
                               else
                                 {
                                   text = 'Done, Wallet Opened Successfully',
-                                  showAboutDialog(context: context),
+                                  showAlertDialog(context),
                                 }
                             }
                         },

@@ -62,7 +62,7 @@ class _openWallet extends State<openWallet> {
                   const SizedBox(height: 50),
                   const Center(
                       child: Text(
-                    'Sign Up',
+                    'Open Wallet',
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,

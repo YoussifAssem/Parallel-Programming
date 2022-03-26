@@ -1,6 +1,7 @@
 // ignore_for_file: body_might_complete_normally_nullable
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Wallet {
   late String _ownerPhoneNo;
@@ -54,33 +55,50 @@ class Wallet {
 
   Future<String?> openWallet(
       String email, String phoneNo, double amount) async {
-    CollectionReference wa = FirebaseFirestore.instance.collection('Wallet');
+    DocumentReference ref = FirebaseFirestore.instance
+        .collection("Wallet")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection('Owners')
+        .doc(email);
+    ref.set(
+        {'ownerEmail': email, 'ownerphoneNo': phoneNo, 'ownerAmount': amount});
+    return 'Done';
+  }
 
-    return wa
-        .doc()
-        .set({
-          'ownerEmail': email,
-          'ownerphoneNo': phoneNo,
-          'moneyAmount': amount,
-        })
-        .then((value) => 'Done')
-        .catchError((error) => 'Error');
+  Future<String?> updateWallet(
+      String email, String phoneNo, double amount) async {
+    DocumentReference ref = FirebaseFirestore.instance
+        .collection("Wallet")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection('Owners')
+        .doc(email);
+    if (ref.id == email) {
+      ref.update({
+        'ownerEmail': email,
+        'ownerphoneNo': phoneNo,
+        'ownerAmount': amount
+      });
+      return 'Done';
+    }
   }
 
   Future<String?> removeWallet(String email, String phoneNumber) async {
-    CollectionReference w = FirebaseFirestore.instance.collection('Wallet');
-    w.get().then((QuerySnapshot querySnapshot) {
-      querySnapshot.docs.forEach((doc) {
-        print(doc["ownerEmail"]);
-
-        if (email == doc["ownerEmail"] && phoneNumber == doc["ownerPhoneNo"]) {
-          w
-              .doc(doc.id)
-              .delete()
-              .then((value) => 'Done')
-              .catchError((error) => 'Error');
-        }
-      });
-    });
+    if (FirebaseFirestore.instance
+            .collection('Wallet')
+            .doc(FirebaseAuth.instance.currentUser!.uid)
+            .collection('Owners')
+            .doc(email)
+            .id ==
+        email) {
+      FirebaseFirestore.instance
+          .collection('Wallet')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .collection('Owners')
+          .doc(email)
+          .delete();
+      return 'Done';
+    } else {
+      return 'Error';
+    }
   }
 }

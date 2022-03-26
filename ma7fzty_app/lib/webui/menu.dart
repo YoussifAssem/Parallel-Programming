@@ -67,17 +67,6 @@ class _Menu extends State<Menu> {
                 );
               }),
           ListTile(
-              leading: const Icon(Icons.balance),
-              title: const Text('amount'),
-              iconColor: Colors.white,
-              textColor: Colors.white,
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => viewAmount()),
-                );
-              }),
-          ListTile(
               leading: const Icon(Icons.exit_to_app),
               title: const Text('Logout'),
               iconColor: Colors.white,
