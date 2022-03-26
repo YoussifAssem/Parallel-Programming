@@ -163,7 +163,7 @@ class _removeWallet extends State<removeWallet> {
                                 }
                               else
                                 {
-                                  text = 'Done, Wallet Opened Successfully',
+                                  text = 'Done, Wallet Removed Successfully',
                                   showAlertDialog(context),
                                 }
                             }
