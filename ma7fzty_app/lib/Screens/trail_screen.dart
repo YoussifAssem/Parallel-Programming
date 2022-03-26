@@ -5,16 +5,16 @@ import 'package:ma7fzty_app/Models/normal_user.dart';
 import 'package:ma7fzty_app/Models/wallet.dart';
 import 'package:ma7fzty_app/Models/admin_user.dart';
 
-Wallet w = Wallet();
+//Wallet w = Wallet();
 Admin a = Admin();
 
 class Screen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    //a.openWallet("ali@gmail.com", "01198876487", 30.25);
-    //a.removeWallet("CQsPzm5EbYGE1IRi4np0");
-    w.addMoney("01234567890", "aya@miu.com", 4.5);
-    // print("money added");
+    // a.openWallet("ali@gmail.com", "01198876487", 30.25);
+    a.removeWallet("VlQO2Ym5OOPdMEcNLg53");
+    //a.addMoney("01234567890", "aya@miu.com", 4.5);
+    //print("money added");
     return _Screen();
   }
 }
