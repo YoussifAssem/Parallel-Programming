@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ma7fzty_app/Models/normal_user.dart';
+import 'package:ma7fzty_app/Models/admin_user.dart';
 import 'package:ma7fzty_app/Screens/login_screen.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -14,7 +14,7 @@ class SignUp extends StatefulWidget {
 class _SignUp extends State<SignUp> {
   // ignore: unused_field
 
-  normalUser user = normalUser();
+  Admin user = Admin();
   final pN = TextEditingController();
   final e = TextEditingController();
   final p = TextEditingController();

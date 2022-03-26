@@ -1,9 +1,8 @@
 // ignore_for_file: camel_case_types, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:ma7fzty_app/Models/normal_user.dart';
+import 'package:ma7fzty_app/Models/admin_user.dart';
 import 'package:ma7fzty_app/webui/home_screen.dart';
-import 'package:ma7fzty_app/webui/menu.dart';
 import 'package:ma7fzty_app/webui/signup_screen.dart';
 
 class logIn extends StatefulWidget {
@@ -16,7 +15,7 @@ class logIn extends StatefulWidget {
 class _logIn extends State<logIn> {
   final email = TextEditingController();
   final password = TextEditingController();
-  normalUser user = normalUser();
+  Admin user = Admin();
   late String text;
 
   @override

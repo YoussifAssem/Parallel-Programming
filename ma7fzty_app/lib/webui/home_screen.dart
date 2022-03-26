@@ -1,7 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, camel_case_types
 
 import 'package:flutter/material.dart';
-import 'package:ma7fzty_app/Models/user.dart';
+import 'package:ma7fzty_app/Models/admin_user.dart';
 import 'package:ma7fzty_app/webui/menu.dart';
 
 class homeScreen extends StatefulWidget {
@@ -12,7 +12,7 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreen extends State<homeScreen> {
-  User user = User();
+  Admin user = Admin();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
