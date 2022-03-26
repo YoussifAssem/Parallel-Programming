@@ -3,14 +3,18 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+//TO RUN MOBILE APP REMOVE THIS TWO COMMENTS
 //import 'package:ma7fzty_app/Screens/login_screen.dart';
 //import 'package:ma7fzty_app/Screens/splash_screen.dart';
+//TO RUN WEB REMOVE  THIS TWO COMMENTS
 import 'package:ma7fzty_app/webui/login_screen.dart';
 import 'package:ma7fzty_app/webui/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  //TO RUN MOBILE APP REMOVE THIS COMMENT
   // await Firebase.initializeApp();
+  //TO RUN WEB REMOVE THIS COMMENT
   await Firebase.initializeApp(
       options: const FirebaseOptions(
     apiKey: "AIzaSyDXmjTKQqlt7hPWEdkYgmKq8wz5_RK7jbQ",
