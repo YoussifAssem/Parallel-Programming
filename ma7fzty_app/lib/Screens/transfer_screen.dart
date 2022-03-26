@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ma7fzty_app/Models/normal_user.dart';
 
 class transferMoney extends StatefulWidget {
   @override
@@ -12,7 +13,10 @@ class transferMoney extends StatefulWidget {
 
 class _transferMoney extends State<transferMoney> {
   String dropdownvalue = 'Item 1';
-
+  normalUser user = normalUser();
+  final pN = TextEditingController();
+  final amount = TextEditingController();
+  late String text;
   // List of items in our dropdown menu
   var items = [
     'Item 1',
@@ -97,6 +101,7 @@ class _transferMoney extends State<transferMoney> {
                   // keyboardType: TextInputType.emailAddress,
                   // controller: pN,
                   maxLength: 11,
+                  controller: pN,
                   inputFormatters: <TextInputFormatter>[
                     FilteringTextInputFormatter.deny(RegExp('[^0-9]')),
                   ],
@@ -119,6 +124,7 @@ class _transferMoney extends State<transferMoney> {
                 TextFormField(
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
+                  controller: amount,
                   style: const TextStyle(
                     fontSize: 18,
                     color: Colors.white,
@@ -185,12 +191,57 @@ class _transferMoney extends State<transferMoney> {
                           const Color.fromARGB(255, 71, 196, 79)),
                     ),
                     child: const Text('view'),
-                    onPressed: () {},
+                    onPressed: () async {
+                      if (pN.text == '' || amount.text == '') {
+                        text = 'Error, Please Fill all Requirements';
+                        showAlertDialog(context);
+                      } else if (pN.text.length < 11) {
+                        text = 'Error, Phone Number is less Than 11 numbers';
+                        showAlertDialog(context);
+                      } else {
+                        if (await user.transferMoney(
+                                phoneNumber: pN.text,
+                                amount: double.parse(amount.text)) ==
+                            'Done') {
+                          text = 'Done, Data Iserted Successfully';
+                          showAlertDialog(context);
+                        }
+                      }
+                    },
                   ),
                 ),
               ],
             ),
           ),
         ));
+  }
+
+  showAlertDialog(
+    BuildContext context,
+  ) {
+    // Create button
+    Widget okButton = TextButton(
+      child: const Text("OK"),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+
+    // Create AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Alert"),
+      content: Text(text),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 }

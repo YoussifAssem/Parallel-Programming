@@ -2,6 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ma7fzty_app/Models/user.dart';
+import 'package:ma7fzty_app/Models/wallet.dart';
 
 class normalUser extends User {
   //Object From Wallet
@@ -19,11 +20,11 @@ class normalUser extends User {
             .collection('Users')
             .doc(userID)
             .collection('transferMoney')
-            .doc();
+            .doc(Email);
 
         FirebaseFirestore.instance.runTransaction((transaction) async {
           DocumentSnapshot snapShot = await transaction.get(ref);
-          if (!snapShot.exists) {
+          if (!snapShot.exists || snapShot.exists) {
             ref.set({
               'phoneNumber': getPhoneNumber(),
               'Amount': _getAmount(),
@@ -59,7 +60,7 @@ class normalUser extends User {
     if (_amount == 0) {
       return 'Error';
     } else {
-      return 'Done';
+      return _amount;
     }
   }
 }
