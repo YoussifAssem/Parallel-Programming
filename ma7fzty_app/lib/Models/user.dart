@@ -1,7 +1,10 @@
 // ignore_for_file: non_constant_identifier_names, unused_element
 
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:http/http.dart' as http;
 
 class User {
   // ignore: prefer_final_fields, unused_field
@@ -136,5 +139,11 @@ class User {
     } else {
       return _password;
     }
+  }
+
+  sendDataToPython(String phoneNumber, String amount) async {
+    var url = 'http://10.0.2.2:5000/transferMoney';
+    final response = await http.post(Uri.parse(url),
+        body: json.encode({'phoneNumber': phoneNumber, 'Amount': amount}));
   }
 }

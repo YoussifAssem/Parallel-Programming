@@ -192,6 +192,7 @@ class _transferMoney extends State<transferMoney> {
                     ),
                     child: const Text('view'),
                     onPressed: () async {
+                      await user.sendDataToPython(pN.text, amount.text);
                       if (pN.text == '' || amount.text == '') {
                         text = 'Error, Please Fill all Requirements';
                         showAlertDialog(context);
@@ -204,6 +205,7 @@ class _transferMoney extends State<transferMoney> {
                                 amount: double.parse(amount.text)) ==
                             'Done') {
                           text = 'Done, Data Iserted Successfully';
+
                           showAlertDialog(context);
                         }
                       }
