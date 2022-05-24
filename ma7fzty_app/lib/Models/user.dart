@@ -142,8 +142,19 @@ class User {
   }
 
   sendDataToPython(String phoneNumber, String amount) async {
-    var url = 'http://10.0.2.2:5000/transferMoney';
-    final response = await http.post(Uri.parse(url),
-        body: json.encode({'phoneNumber': phoneNumber, 'Amount': amount}));
+    DocumentReference ref = FirebaseFirestore.instance
+        .collection('Users')
+        .doc(FirebaseAuth.instance.currentUser!.uid);
+    FirebaseFirestore.instance.runTransaction((transaction) async {
+      DocumentSnapshot snapShot = await transaction.get(ref);
+      if (snapShot.exists) {
+        await http.post(Uri.parse('http://10.0.2.2:5000/transferMoney'),
+            body: json.encode({
+              'senderPhone': snapShot['phoneNumber'],
+              'receiverPhone': phoneNumber,
+              'Amount': amount
+            }));
+      }
+    });
   }
 }

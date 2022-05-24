@@ -113,7 +113,7 @@ class _transferMoney extends State<transferMoney> {
                     color: Colors.white,
                   ),
                   inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.allow(RegExp(r'[1-9]')),
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                   ],
                   maxLength: 11,
                   //  inputFormatters: <TextInputFormatter>[
