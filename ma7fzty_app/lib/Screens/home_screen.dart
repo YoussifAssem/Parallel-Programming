@@ -15,9 +15,9 @@ class _homeScreen extends State<homeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 209, 207, 207),
+        backgroundColor: const Color.fromARGB(247, 42, 42, 42),
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 71, 196, 79),
+          backgroundColor: const Color.fromARGB(247, 42, 42, 42),
           title: const Text(
             'Home Page',
           ),
@@ -45,7 +45,7 @@ class _homeScreen extends State<homeScreen> {
           constraints: const BoxConstraints.expand(),
           decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("images/bk.jpg"), fit: BoxFit.cover)),
+                  image: AssetImage("images/logo.png"), fit: BoxFit.cover)),
           /* child: const TextField(
               decoration:
                  // InputDecoration(fillColor: Colors.green, filled: true),

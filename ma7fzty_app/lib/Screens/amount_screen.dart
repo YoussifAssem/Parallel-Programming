@@ -15,7 +15,8 @@ class _viewAmount extends State<viewAmount> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(247, 42, 42, 42),
+        /*
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 71, 196, 79),
           title: const Text(
@@ -40,7 +41,7 @@ class _viewAmount extends State<viewAmount> {
               ),
             )
           ],
-        ),
+        ),*/
         body: ListView(children: [
           Container(
               padding: const EdgeInsets.only(left: 40, top: 25, right: 40),
@@ -49,6 +50,16 @@ class _viewAmount extends State<viewAmount> {
                     FocusScope.of(context).unfocus();
                   },
                   child: Column(children: [
+                    const Center(
+                      child: Text(
+                        "View Amount",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.normal,
+                            fontSize: 30),
+                      ),
+                    ),
                     const SizedBox(
                       height: 40,
                     ),
@@ -56,7 +67,7 @@ class _viewAmount extends State<viewAmount> {
                       child: Text(
                         "please enter the phone number to view the amount of money",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontStyle: FontStyle.italic,
                             fontSize: 13),
@@ -64,7 +75,6 @@ class _viewAmount extends State<viewAmount> {
                     ),
                     const SizedBox(height: 25),
                     TextFormField(
-                      textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontSize: 18,
                         color: Colors.white,
@@ -76,12 +86,7 @@ class _viewAmount extends State<viewAmount> {
                           Icons.phone_android,
                           color: Colors.white,
                         ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                          borderSide: BorderSide.none,
-                        ),
                         filled: true,
-                        fillColor: Color.fromARGB(255, 71, 196, 79),
                         hintText: 'Phone Number',
                         hintStyle: TextStyle(fontSize: 18, color: Colors.white),
                       ),
@@ -93,7 +98,7 @@ class _viewAmount extends State<viewAmount> {
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
-                              const Color.fromARGB(255, 71, 196, 79)),
+                              const Color.fromARGB(255, 3, 81, 15)),
                         ),
                         child: const Text('view'),
                         onPressed: () {},

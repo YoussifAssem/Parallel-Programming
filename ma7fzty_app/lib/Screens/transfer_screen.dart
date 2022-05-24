@@ -28,8 +28,8 @@ class _transferMoney extends State<transferMoney> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-        appBar: AppBar(
+        backgroundColor: const Color.fromARGB(247, 42, 42, 42),
+        /*  appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: const Color.fromARGB(255, 71, 196, 79),
           title: Row(
@@ -58,19 +58,8 @@ class _transferMoney extends State<transferMoney> {
               ),
             )
           ],
-        ),
-        body:
-            // const Center(
-            //   child: Text(
-            //     'Transfer Money Screen',
-            //     style: TextStyle(
-            //         fontSize: 30,
-            //         fontStyle: FontStyle.italic,
-            //         fontWeight: FontWeight.bold,
-            //         color: Colors.black),
-            //   ),
-            // ),
-            Container(
+        ),*/
+        body: Container(
           padding: const EdgeInsets.only(left: 40, top: 25, right: 40),
           child: GestureDetector(
             onTap: () {
@@ -78,22 +67,23 @@ class _transferMoney extends State<transferMoney> {
             },
             child: Column(
               children: [
-                // const SizedBox(
-                //   height: 40,
-                // ),
-                // const Center(
-                //   child: Text(
-                //     "Transfer Money Screen",
-                //     style: TextStyle(
-                //         color: Colors.black,
-                //         fontWeight: FontWeight.bold,
-                //         fontStyle: FontStyle.italic,
-                //         fontSize: 30),
-                //   ),
-                // ),
-
+                const SizedBox(
+                  height: 40,
+                ),
+                const Center(
+                  child: Text(
+                    'Transfer Money',
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
                 TextFormField(
-                  textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 18,
                     color: Colors.white,
@@ -110,20 +100,13 @@ class _transferMoney extends State<transferMoney> {
                       Icons.phone_android,
                       color: Colors.white,
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                      borderSide: BorderSide.none,
-                    ),
                     filled: true,
-                    fillColor: Color.fromARGB(255, 71, 196, 79),
                     hintText: 'Phone Number',
                     hintStyle: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ),
-
                 TextFormField(
                   keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
                   controller: amount,
                   style: const TextStyle(
                     fontSize: 18,
@@ -144,23 +127,19 @@ class _transferMoney extends State<transferMoney> {
                     ),
                     //suffixText: Text($EGP'),
                     suffixText: 'EGP',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                      borderSide: BorderSide.none,
-                    ),
+
                     filled: true,
-                    fillColor: Color.fromARGB(255, 71, 196, 79),
+
                     hintText: 'Cash Ammount',
                     hintStyle: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ),
-
                 DropdownButton(
                   elevation: 16,
-                  style: const TextStyle(color: Colors.black),
+                  style: const TextStyle(color: Colors.white),
                   underline: Container(
                     height: 2,
-                    color: Colors.deepPurpleAccent,
+                    color: const Color.fromARGB(255, 3, 81, 15),
                   ),
                   value: dropdownvalue,
                   // Down Arrow Icon
@@ -183,12 +162,11 @@ class _transferMoney extends State<transferMoney> {
                     );
                   },
                 ),
-
                 Center(
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(
-                          const Color.fromARGB(255, 71, 196, 79)),
+                          const Color.fromARGB(255, 3, 81, 15)),
                     ),
                     child: const Text('view'),
                     onPressed: () async {

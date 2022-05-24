@@ -21,7 +21,7 @@ class _Chat extends State<Chat> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 71, 196, 79),
+        backgroundColor: const Color.fromARGB(247, 42, 42, 42),
         title: const Text(
           'Name From DB',
         ),
@@ -95,7 +95,7 @@ class _Chat extends State<Chat> {
                     child: const Text(
                       'send',
                       style: TextStyle(
-                        color: Colors.green,
+                        color: Color.fromARGB(255, 3, 81, 15),
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),

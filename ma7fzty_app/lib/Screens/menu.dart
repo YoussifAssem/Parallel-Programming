@@ -42,31 +42,32 @@ class _Menu extends State<Menu> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color.fromARGB(255, 71, 196, 79),
+        backgroundColor: const Color.fromARGB(247, 42, 42, 42),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-              backgroundColor: Color.fromARGB(255, 71, 196, 79)),
+            icon: Icon(Icons.home),
+            label: 'Home',
+            backgroundColor: Color.fromARGB(247, 42, 42, 42),
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat),
             label: 'Chat',
-            backgroundColor: Color.fromARGB(255, 71, 196, 79),
+            backgroundColor: Color.fromARGB(247, 42, 42, 42),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.money_rounded),
             label: 'Transfer Money',
-            backgroundColor: Color.fromARGB(255, 71, 196, 79),
+            backgroundColor: Color.fromARGB(247, 42, 42, 42),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.view_array),
             label: 'view Amount',
-            backgroundColor: Color.fromARGB(255, 71, 196, 79),
+            backgroundColor: Color.fromARGB(247, 42, 42, 42),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.logout),
             label: 'Log Out',
-            backgroundColor: Color.fromARGB(255, 71, 196, 79),
+            backgroundColor: Color.fromARGB(247, 42, 42, 42),
           ),
         ],
         currentIndex: _selectedIndex,

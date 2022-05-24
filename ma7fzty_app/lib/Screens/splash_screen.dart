@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ma7fzty_app/Screens/login_screen.dart';
 import 'dart:async';
 
-
-
-
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
 
@@ -13,10 +10,7 @@ class Splash extends StatefulWidget {
 }
 
 class SplashState extends State<Splash> {
-
-
-
-@override
+  @override
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 5), () {
@@ -28,18 +22,19 @@ class SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 71, 196, 79),
+      backgroundColor: const Color.fromARGB(247, 42, 42, 42),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("Ma7fazty",
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 40,
-              
-            ),),
+            const Text(
+              "Ma7fazty",
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 40,
+              ),
+            ),
             Image.asset(
               'images/logo.png',
               height: 120,

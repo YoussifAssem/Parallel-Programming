@@ -30,7 +30,7 @@ class _SignUp extends State<SignUp> {
 
         //                   Navigator.pushNamed(context, '/login');
         //                 }, icon: Icon(Icons.arrow_back),),
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(247, 42, 42, 42),
         appBar: AppBar(
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -49,7 +49,7 @@ class _SignUp extends State<SignUp> {
           ),
           centerTitle: true,
           // automaticallyImplyLeading: false,
-          backgroundColor: const Color.fromARGB(255, 71, 196, 79),
+          backgroundColor: const Color.fromARGB(247, 42, 42, 42),
         ),
         body: ListView(
           children: [
@@ -62,18 +62,7 @@ class _SignUp extends State<SignUp> {
               child: Column(
                 children: [
                   const SizedBox(height: 50),
-                  const Center(
-                      child: Text(
-                    'Sign Up',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic,
-                        fontSize: 30),
-                  )),
-                  const SizedBox(height: 50),
                   TextFormField(
-                    textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 18,
                       color: Colors.white,
@@ -85,19 +74,13 @@ class _SignUp extends State<SignUp> {
                         Icons.email,
                         color: Colors.white,
                       ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                        borderSide: BorderSide.none,
-                      ),
                       filled: true,
-                      fillColor: Color.fromARGB(255, 71, 196, 79),
                       hintText: 'Email',
                       hintStyle: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                   ),
                   const SizedBox(height: 25),
                   TextFormField(
-                    textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 18,
                       color: Colors.white,
@@ -113,12 +96,7 @@ class _SignUp extends State<SignUp> {
                         Icons.phone,
                         color: Colors.white,
                       ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                        borderSide: BorderSide.none,
-                      ),
                       filled: true,
-                      fillColor: Color.fromARGB(255, 71, 196, 79),
                       hintText: 'Phone Number',
                       hintStyle: TextStyle(fontSize: 18, color: Colors.white),
                     ),
@@ -127,7 +105,6 @@ class _SignUp extends State<SignUp> {
                     height: 25.0,
                   ),
                   TextFormField(
-                    textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 18, color: Colors.white),
                     //keyboardType: TextInputType.visiblePassword,
                     controller: p,
@@ -136,12 +113,7 @@ class _SignUp extends State<SignUp> {
                         Icons.password,
                         color: Colors.white,
                       ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                        borderSide: BorderSide.none,
-                      ),
                       filled: true,
-                      fillColor: Color.fromARGB(255, 71, 196, 79),
                       hintText: 'Password',
                       hintStyle: TextStyle(fontSize: 18, color: Colors.white),
                     ),
@@ -151,7 +123,6 @@ class _SignUp extends State<SignUp> {
                     height: 25.0,
                   ),
                   TextFormField(
-                    textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 18, color: Colors.white),
                     controller: cP,
                     decoration: const InputDecoration(
@@ -159,12 +130,7 @@ class _SignUp extends State<SignUp> {
                         Icons.password,
                         color: Colors.white,
                       ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                        borderSide: BorderSide.none,
-                      ),
                       filled: true,
-                      fillColor: Color.fromARGB(255, 71, 196, 79),
                       hintText: 'Confirm Password',
                       hintStyle: TextStyle(fontSize: 18, color: Colors.white),
                     ),
@@ -183,7 +149,7 @@ class _SignUp extends State<SignUp> {
                         ),
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
-                            const Color.fromARGB(255, 71, 196, 79),
+                            const Color.fromARGB(255, 3, 81, 15),
                           ),
                         ),
                         onPressed: () async => {
