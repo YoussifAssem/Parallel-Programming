@@ -22,8 +22,8 @@ class _logIn extends State<logIn> {
   Widget build(BuildContext context) {
     return Center(
         child: Scaffold(
-            backgroundColor: const Color.fromARGB(255, 255, 251, 251),
-            appBar: AppBar(
+            backgroundColor: const Color.fromARGB(247, 42, 42, 42),
+            /* appBar: AppBar(
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -41,7 +41,7 @@ class _logIn extends State<logIn> {
               centerTitle: true,
               // automaticallyImplyLeading: false,
               backgroundColor: const Color.fromARGB(255, 71, 196, 79),
-            ),
+            ),*/
             body: ListView(children: [
               Container(
                 padding: const EdgeInsets.only(left: 400, top: 25, right: 400),
@@ -56,11 +56,11 @@ class _logIn extends State<logIn> {
                       ),
                       const Center(
                         child: Text(
-                          "Welcome",
+                          "Log In",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontStyle: FontStyle.italic,
+                              fontStyle: FontStyle.normal,
                               fontSize: 30),
                         ),
                       ),
@@ -69,7 +69,7 @@ class _logIn extends State<logIn> {
                         child: ElevatedButton(
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
-                                const Color.fromARGB(255, 71, 196, 79)),
+                                const Color.fromARGB(255, 3, 81, 15)),
                           ),
                           child: const Text('Sign Up Here'),
                           onPressed: () {
@@ -84,7 +84,6 @@ class _logIn extends State<logIn> {
                         height: 50,
                       ),
                       TextFormField(
-                        textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 18,
                           color: Colors.white,
@@ -96,13 +95,7 @@ class _logIn extends State<logIn> {
                             Icons.email,
                             color: Colors.white,
                           ),
-                          border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(15.0)),
-                            borderSide: BorderSide.none,
-                          ),
                           filled: true,
-                          fillColor: Color.fromARGB(255, 71, 196, 79),
                           hintText: 'Email',
                           hintStyle:
                               TextStyle(fontSize: 18, color: Colors.white),
@@ -112,7 +105,6 @@ class _logIn extends State<logIn> {
                         height: 50,
                       ),
                       TextFormField(
-                        textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 18,
                           color: Colors.white,
@@ -124,13 +116,7 @@ class _logIn extends State<logIn> {
                             Icons.password,
                             color: Colors.white,
                           ),
-                          border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(15.0)),
-                            borderSide: BorderSide.none,
-                          ),
                           filled: true,
-                          fillColor: Color.fromARGB(255, 71, 196, 79),
                           hintText: 'Password',
                           hintStyle:
                               TextStyle(fontSize: 18, color: Colors.white),
@@ -145,7 +131,7 @@ class _logIn extends State<logIn> {
                             child: ElevatedButton(
                               style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(
-                                  const Color.fromARGB(255, 71, 196, 79),
+                                  const Color.fromARGB(255, 3, 81, 15),
                                 ),
                               ),
                               child: const Text('Log In'),
