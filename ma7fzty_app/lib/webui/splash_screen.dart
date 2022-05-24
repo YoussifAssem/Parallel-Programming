@@ -22,7 +22,7 @@ class SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 71, 196, 79),
+      backgroundColor: const Color.fromARGB(247, 42, 42, 42),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
