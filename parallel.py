@@ -5,9 +5,9 @@ from firebase_admin import credentials, firestore
 import threading
 import sys
 import time
-class Connection:
+
+class Parallel:
    __db = object()
-   val = '' 
    def __init__(self):
         try:
                 cred = credentials.Certificate("../fireStore.json")
@@ -41,7 +41,7 @@ class Connection:
             with add:  
               self.addMoney(refReceiver, valReceiver['ownerAmount'], data['Amount'])
             b = time.time()
-            print('Time: ', b-a)  
+            print('Parallel Time: ', b-a)  
           else:
               sys.exit('Error Program Is Terminated')   
 response = {}
@@ -49,11 +49,11 @@ app = Flask(__name__)
 @app.route('/transferMoney', methods= ['GET', 'POST'])
 def transferMoney():
     global response
-    conn = Connection()
+    parallelRun = Parallel()
     if(request.method == 'POST'):
        data = json.loads(request.data.decode('utf-8'))
        response = {'senderPhone': data["senderPhone"],'receiverPhone': data["receiverPhone"], 'Amount':data["Amount"]}
-       conn.runThreading(data)
+       parallelRun.runThreading(data)
        return jsonify(response)
      
     else:
