@@ -1,14 +1,13 @@
 import json
 from flask import Flask, request, jsonify
-import threading
-
 import firebase_admin
 from firebase_admin import credentials, firestore
-
-response = {}
-#transfer = threading.lock()
+import threading
+import sys
+import time
 class Connection:
-   __db = object()  
+   __db = object()
+   val = '' 
    def __init__(self):
         try:
                 cred = credentials.Certificate("../fireStore.json")
@@ -16,33 +15,46 @@ class Connection:
                 self.__db = firestore.client()
         except:
             print('Error')
-   def transfer(self, data):
+   def addMoney(self, ref, myAmount, money):
+       ref.set({
+                  'ownerAmount': str(int(myAmount) + int(money))
+              })
+   def removeMoney(self, ref, myAmount, money):
+       ref.set({
+                  'ownerAmount': str(int(myAmount) - int(money))
+              })
+   def runThreading(self, data):
+        add = threading.Lock()
+        remove = threading.Lock()
+        threading.Thread(target=self.transfer, args=(data, add, remove)).start()
+       
+   def transfer(self, data, add, remove):
        refSender = self.__db.collection('Wallet').document('8B71nVAcOQcoL0FsD6WwDyDV2Mm1').collection('Owners').document(data["senderPhone"])
        refReceiver = self.__db.collection('Wallet').document('8B71nVAcOQcoL0FsD6WwDyDV2Mm1').collection('Owners').document(data["receiverPhone"])
        valSender = refSender.get().to_dict()
        valReceiver = refReceiver.get().to_dict()
        if(refSender.get().exists and refReceiver.get().exists):
           if(int(valSender['ownerAmount']) > int(data['Amount'])):
-              refSender.set({
-                  'ownerAmount': str(int(valSender['ownerAmount']) - int(data['Amount']))
-              })
-              refReceiver.set({
-                  'ownerAmount': str(int(valReceiver['ownerAmount']) + int(data['Amount']))
-              })
-              return 'Transfered'    
+            a = time.time()  
+            with remove:  
+              self.removeMoney(refSender, valSender['ownerAmount'], data['Amount'])
+            with add:  
+              self.addMoney(refReceiver, valReceiver['ownerAmount'], data['Amount'])
+            b = time.time()
+            print('Time: ', b-a)  
           else:
-              return 'Error'   
+              sys.exit('Error Program Is Terminated')   
+response = {}
 app = Flask(__name__)
 @app.route('/transferMoney', methods= ['GET', 'POST'])
 def transferMoney():
     global response
     conn = Connection()
-    print(request.method)
     if(request.method == 'POST'):
        data = json.loads(request.data.decode('utf-8'))
        response = {'senderPhone': data["senderPhone"],'receiverPhone': data["receiverPhone"], 'Amount':data["Amount"]}
-       if(conn.transfer(data) == 'Transfered'):
-            return jsonify(response)
+       conn.runThreading(data)
+       return jsonify(response)
      
     else:
         return jsonify(response)
