@@ -2,7 +2,6 @@ import json
 from flask import Flask, request, jsonify
 import firebase_admin
 from firebase_admin import credentials, firestore
-import threading
 import sys
 import time
 class Sequential:
@@ -43,7 +42,6 @@ app = Flask(__name__)
 def transferMoney():
     global response
     sequentialRun = Sequential()
-
     if(request.method == 'POST'):
        data = json.loads(request.data.decode('utf-8'))
        response = {'senderPhone': data["senderPhone"],'receiverPhone': data["receiverPhone"], 'Amount':data["Amount"]}
