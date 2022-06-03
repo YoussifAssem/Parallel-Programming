@@ -22,11 +22,16 @@ class _removeWallet extends State<removeWallet> {
   Widget build(BuildContext context) {
     return Scaffold(
         drawer: Menu(),
-        backgroundColor: const Color.fromARGB(255, 209, 207, 207),
+        backgroundColor: const Color.fromARGB(247, 42, 42, 42),
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 71, 196, 79),
+          backgroundColor: const Color.fromARGB(247, 42, 42, 42),
           title: const Text(
             'Remove Wallet',
+            style: TextStyle(
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 30),
           ),
           actions: [
             Image.asset(
@@ -63,7 +68,7 @@ class _removeWallet extends State<removeWallet> {
                       child: Text(
                     'Remove Wallet',
                     style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontStyle: FontStyle.italic,
                         fontSize: 30),
@@ -82,12 +87,8 @@ class _removeWallet extends State<removeWallet> {
                         Icons.email,
                         color: Colors.white,
                       ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                        borderSide: BorderSide.none,
-                      ),
                       filled: true,
-                      fillColor: Color.fromARGB(255, 71, 196, 79),
+                      //fillColor: Color.fromARGB(255, 71, 196, 79),
                       hintText: 'Email',
                       hintStyle: TextStyle(fontSize: 18, color: Colors.white),
                     ),
@@ -110,12 +111,9 @@ class _removeWallet extends State<removeWallet> {
                         Icons.phone,
                         color: Colors.white,
                       ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                        borderSide: BorderSide.none,
-                      ),
+                     
                       filled: true,
-                      fillColor: Color.fromARGB(255, 71, 196, 79),
+                    //  fillColor: Color.fromARGB(255, 71, 196, 79),
                       hintText: 'Phone Number',
                       hintStyle: TextStyle(fontSize: 18, color: Colors.white),
                     ),
@@ -123,54 +121,54 @@ class _removeWallet extends State<removeWallet> {
                   const SizedBox(
                     height: 25.0,
                   ),
-                  SizedBox(
-                    height: 50,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 80, right: 80),
-                      child: ElevatedButton(
-                        child: const Text(
-                          'Remove Wallet',
-                        ),
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                            const Color.fromARGB(255, 71, 196, 79),
+                 Container(
+                   height: 50,
+                   width: 200,
+                   child: ElevatedButton(
+                          child: const Text(
+                            'Remove Wallet',
                           ),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                               const Color.fromARGB(255, 3, 81, 15),
+                            ),
+                          ),
+                          onPressed: () async => {
+                            if (pN.text == '' || e.text == '')
+                              {
+                                text = 'Error, Please fill all requirements',
+                                showAlertDialog(context),
+                              }
+                            else if (!e.text.contains('@'))
+                              {
+                                text = 'Email format is not applicable',
+                                showAlertDialog(context),
+                              }
+                            else if (pN.text.length != 11)
+                              {
+                                text = ' Phone Number is less than 11 Numbers !',
+                                showAlertDialog(context),
+                              }
+                            else
+                              {
+                                if (await user.removeWallet(e.text, pN.text) ==
+                                    'Error')
+                                  {
+                                    text =
+                                        'Error Email is Not Exist OR There are an error in Data',
+                                    showAlertDialog(context),
+                                  }
+                                else
+                                  {
+                                    text = 'Done, Wallet Removed Successfully',
+                                    showAlertDialog(context),
+                                  }
+                              }
+                          },
                         ),
-                        onPressed: () async => {
-                          if (pN.text == '' || e.text == '')
-                            {
-                              text = 'Error, Please fill all requirements',
-                              showAlertDialog(context),
-                            }
-                          else if (!e.text.contains('@'))
-                            {
-                              text = 'Email format is not applicable',
-                              showAlertDialog(context),
-                            }
-                          else if (pN.text.length != 11)
-                            {
-                              text = ' Phone Number is less than 11 Numbers !',
-                              showAlertDialog(context),
-                            }
-                          else
-                            {
-                              if (await user.removeWallet(e.text, pN.text) ==
-                                  'Error')
-                                {
-                                  text =
-                                      'Error Email is Not Exist OR There are an error in Data',
-                                  showAlertDialog(context),
-                                }
-                              else
-                                {
-                                  text = 'Done, Wallet Removed Successfully',
-                                  showAlertDialog(context),
-                                }
-                            }
-                        },
-                      ),
-                    ),
-                  ),
+                 ),
+                   // ),
+                 // ),
                 ],
               ),
             ),

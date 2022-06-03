@@ -23,11 +23,16 @@ class _openWallet extends State<openWallet> {
   Widget build(BuildContext context) {
     return Scaffold(
         drawer: Menu(),
-        backgroundColor: const Color.fromARGB(255, 209, 207, 207),
+       backgroundColor: const Color.fromARGB(247, 42, 42, 42),
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 71, 196, 79),
+           backgroundColor: const Color.fromARGB(247, 42, 42, 42),
           title: const Text(
             'Open Wallet',
+          style: TextStyle(
+                color: Color.fromARGB(148, 255, 255, 255),
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
+          ),
           ),
           actions: [
             Image.asset(
@@ -64,11 +69,12 @@ class _openWallet extends State<openWallet> {
                       child: Text(
                     'Open Wallet',
                     style: TextStyle(
-                        color: Colors.black,
+                        color: Color.fromARGB(255, 255, 255, 255),
                         fontWeight: FontWeight.bold,
                         fontStyle: FontStyle.italic,
                         fontSize: 30),
-                  )),
+                  ),
+                  ),
                   const SizedBox(height: 50),
                   TextFormField(
                     textAlign: TextAlign.center,
@@ -83,12 +89,9 @@ class _openWallet extends State<openWallet> {
                         Icons.email,
                         color: Colors.white,
                       ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                        borderSide: BorderSide.none,
-                      ),
+                     
                       filled: true,
-                      fillColor: Color.fromARGB(255, 71, 196, 79),
+                      //fillColor:  const Color.fromARGB(255, 3, 81, 15),
                       hintText: 'Email',
                       hintStyle: TextStyle(fontSize: 18, color: Colors.white),
                     ),
@@ -111,12 +114,9 @@ class _openWallet extends State<openWallet> {
                         Icons.phone,
                         color: Colors.white,
                       ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                        borderSide: BorderSide.none,
-                      ),
+                      
                       filled: true,
-                      fillColor: Color.fromARGB(255, 71, 196, 79),
+                     // fillColor:  const Color.fromARGB(255, 3, 81, 15),
                       hintText: 'Phone Number',
                       hintStyle: TextStyle(fontSize: 18, color: Colors.white),
                     ),
@@ -134,12 +134,8 @@ class _openWallet extends State<openWallet> {
                         Icons.phone_android,
                         color: Colors.white,
                       ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                        borderSide: BorderSide.none,
-                      ),
+                     
                       filled: true,
-                      fillColor: Color.fromARGB(255, 71, 196, 79),
                       hintText: 'Enter Amount',
                       hintStyle: TextStyle(fontSize: 18, color: Colors.white),
                     ),
@@ -147,57 +143,61 @@ class _openWallet extends State<openWallet> {
                   const SizedBox(
                     height: 25.0,
                   ),
-                  SizedBox(
-                    height: 50,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 80, right: 80),
+                  //SizedBox(
+                    //height: 50,
+                    //width: 10,
+                    //child: 
+                    Container(
+                      height: 50,
+                      width:150,
                       child: ElevatedButton(
-                        child: const Text(
-                          'Open Wallet',
-                        ),
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                            const Color.fromARGB(255, 71, 196, 79),
+                          child: const Text(
+                            'Open Wallet',
                           ),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                              const Color.fromARGB(255, 3, 81, 15),
+                            ),
+                          ),
+                          onPressed: () async => {
+                            if (pN.text == '' ||
+                                e.text == '' ||
+                                amount.text == '')
+                              {
+                                text = 'Error, Please fill all requirements',
+                                showAlertDialog(context),
+                              }
+                            else if (!e.text.contains('@'))
+                              {
+                                text = 'Email format is not applicable',
+                                showAlertDialog(context),
+                              }
+                            else if (pN.text.length != 11)
+                              {
+                                text = ' Phone Number is less than 11 Numbers !',
+                                showAlertDialog(context),
+                              }
+                            else
+                              {
+                                if (await user.openWallet(e.text, pN.text,
+                                        double.parse(amount.text)) ==
+                                    'Error')
+                                  {
+                                    text =
+                                        'Error Email is Not Exist OR There are an error in Data',
+                                    showAlertDialog(context),
+                                  }
+                                else
+                                  {
+                                    text = 'Done, Wallet Opened Successfully',
+                                    showAlertDialog(context),
+                                  }
+                              }
+                          },
                         ),
-                        onPressed: () async => {
-                          if (pN.text == '' ||
-                              e.text == '' ||
-                              amount.text == '')
-                            {
-                              text = 'Error, Please fill all requirements',
-                              showAlertDialog(context),
-                            }
-                          else if (!e.text.contains('@'))
-                            {
-                              text = 'Email format is not applicable',
-                              showAlertDialog(context),
-                            }
-                          else if (pN.text.length != 11)
-                            {
-                              text = ' Phone Number is less than 11 Numbers !',
-                              showAlertDialog(context),
-                            }
-                          else
-                            {
-                              if (await user.openWallet(e.text, pN.text,
-                                      double.parse(amount.text)) ==
-                                  'Error')
-                                {
-                                  text =
-                                      'Error Email is Not Exist OR There are an error in Data',
-                                  showAlertDialog(context),
-                                }
-                              else
-                                {
-                                  text = 'Done, Wallet Opened Successfully',
-                                  showAlertDialog(context),
-                                }
-                            }
-                        },
-                      ),
                     ),
-                  ),
+                    
+                 // ),
                 ],
               ),
             ),
