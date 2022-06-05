@@ -1,12 +1,15 @@
 import 'package:ma7fzty_app/Models/wallet.dart';
 import 'package:ma7fzty_app/Models/user.dart';
 
+
+
 class Admin extends User {
   Wallet wallet = Wallet();
   Admin();
-
+  
   Future<String?> openWallet(
       String email, String phoneNo, double amount) async {
+        
     if (await wallet.openWallet(email, phoneNo, amount) == 'Done') {
       return 'Done';
     } else {

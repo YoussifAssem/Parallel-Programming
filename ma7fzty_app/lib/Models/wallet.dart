@@ -59,9 +59,9 @@ class Wallet {
         .collection("Wallet")
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .collection('Owners')
-        .doc(email);
+        .doc(phoneNo);
     ref.set(
-        {'ownerEmail': email, 'ownerphoneNo': phoneNo, 'ownerAmount': amount});
+        {'ownerAmount': amount});
     return 'Done';
   }
 
