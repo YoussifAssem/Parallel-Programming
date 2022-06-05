@@ -46,13 +46,13 @@ class _logIn extends State<logIn> {
               width:double.infinity,
                 height:double.infinity,
   
-    decoration: const BoxDecoration(
+    decoration: BoxDecoration(
         gradient:LinearGradient(
             colors: [
               
-           Color.fromARGB(247, 42, 42, 42),
+           const Color.fromARGB(247, 42, 42, 42),
               Color.fromARGB(247, 110, 110, 110),
-              Color.fromARGB(247, 42, 42, 42),
+              const Color.fromARGB(247, 42, 42, 42),
             //add more colors for gradient
             ],
           
@@ -80,7 +80,7 @@ class _logIn extends State<logIn> {
                         padding: EdgeInsets.all(0.0),
                         child: Icon(
                           Icons.person_outline,
-                          color: Color.fromARGB(255, 3, 81, 15),
+                          color: const Color.fromARGB(255, 3, 81, 15),
                           size: 100,
                         ),
                       ),
