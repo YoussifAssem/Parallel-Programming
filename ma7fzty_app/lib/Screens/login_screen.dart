@@ -49,12 +49,12 @@ class _logIn extends State<logIn> {
         body: Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                const Color.fromARGB(247, 42, 42, 42),
+                Color.fromARGB(247, 42, 42, 42),
                 Color.fromARGB(247, 110, 110, 110),
-                const Color.fromARGB(247, 42, 42, 42),
+                Color.fromARGB(247, 42, 42, 42),
                 //add more colors for gradient
               ],
             ),
@@ -79,7 +79,7 @@ class _logIn extends State<logIn> {
                         padding: EdgeInsets.all(0.0),
                         child: Icon(
                           Icons.person_outline,
-                          color: const Color.fromARGB(255, 3, 81, 15),
+                          color: Color.fromARGB(255, 3, 81, 15),
                           size: 100,
                         ),
                       ),
@@ -111,11 +111,11 @@ class _logIn extends State<logIn> {
                       const SizedBox(height: 10), ///////////20
                       ///////////////////////container for sigun up here
                       Container(
-                        margin: EdgeInsets.symmetric(horizontal: 30.0),
+                        margin: const EdgeInsets.symmetric(horizontal: 30.0),
                         alignment: Alignment.center,
                         width: 150.0, //double.infinity, //150
                         height: 55.0,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(8.0)),
                             gradient: LinearGradient(colors: [
@@ -143,7 +143,7 @@ class _logIn extends State<logIn> {
                           style: ElevatedButton.styleFrom(
                             elevation: 0.0,
                             primary: Colors.red.withOpacity(0),
-                            shape: RoundedRectangleBorder(
+                            shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(
                                 Radius.circular(2),
                               ),
@@ -186,9 +186,8 @@ class _logIn extends State<logIn> {
 
                         /// 80,
                         alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(15)),
+                        decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
                             color: Colors.white,
                             gradient: LinearGradient(
                                 begin: Alignment.topLeft,
@@ -299,9 +298,8 @@ class _logIn extends State<logIn> {
                         width: 320,
                         height: 80,
                         alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(20)),
+                        decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                             color: Colors.white,
                             gradient: LinearGradient(
                                 begin: Alignment.topLeft,
@@ -322,7 +320,7 @@ class _logIn extends State<logIn> {
                           child: TextFormField(
                             style: const TextStyle(
                               fontSize: 18,
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
                             //keyboardType: TextInputType.visiblePassword,
                             controller: password,
@@ -387,7 +385,7 @@ class _logIn extends State<logIn> {
                           style: ElevatedButton.styleFrom(
                               elevation: 0.0,
                               primary: Colors.red.withOpacity(0),
-                              shape: RoundedRectangleBorder(
+                              shape: const RoundedRectangleBorder(
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(2),
                                 ),

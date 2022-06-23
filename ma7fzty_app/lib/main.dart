@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 //TO RUN MOBILE APP REMOVE THIS TWO COMMENTS
 import 'package:ma7fzty_app/Screens/login_screen.dart';
 import 'package:ma7fzty_app/Screens/splash_screen.dart';
-import 'Screens/transfer_screen.dart';
+
 //TO RUN WEB REMOVE  THIS TWO COMMENTS
 //import 'package:ma7fzty_app/webui/login_screen.dart';
 //import 'package:ma7fzty_app/webui/splash_screen.dart';
@@ -37,16 +37,13 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,
     ]);
-    return 
-    MaterialApp(
-       debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       routes: {
         '/logIn': (context) => logIn(),
       },
-    home: const Splash(),
-  // home:  transferMoney(),
-     
+      home: const Splash(),
+      // home:  transferMoney(),
     );
-    
   }
 }

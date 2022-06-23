@@ -134,41 +134,13 @@ class _transferMoney extends State<transferMoney> {
                     hintStyle: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ),
-                DropdownButton(
-                  elevation: 16,
-                  style: const TextStyle(color: Colors.white),
-                  underline: Container(
-                    height: 2,
-                    color: const Color.fromARGB(255, 3, 81, 15),
-                  ),
-                  value: dropdownvalue,
-                  // Down Arrow Icon
-                  icon: const Icon(Icons.keyboard_arrow_down),
-
-                  items: items.map((String items) {
-                    return DropdownMenuItem(
-                      value: items,
-                      child: Text(items),
-                    );
-                  }).toList(),
-
-                  //After selecting the desired option,it will
-                  //change button value to selected value
-                  onChanged: (String? newValue) {
-                    setState(
-                      () {
-                        dropdownvalue = newValue!;
-                      },
-                    );
-                  },
-                ),
                 Center(
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(
                           const Color.fromARGB(255, 3, 81, 15)),
                     ),
-                    child: const Text('view'),
+                    child: const Text('Transfer'),
                     onPressed: () async {
                       await user.sendDataToPython(pN.text, amount.text);
                       if (pN.text == '' || amount.text == '') {
